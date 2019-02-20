@@ -199,7 +199,7 @@ func attachToTangle(request Request, c *gin.Context, t time.Time) {
 		//attachment fields: tag and timestamps
 		//tag - copy the obsolete tag to the attachment tag field only if tag isn't set.
 		if string(runes[consts.TagTrinaryOffset/3:(consts.TagTrinaryOffset+consts.TagTrinarySize)/3]) == "999999999999999999999999999" {
-			copy(runes[consts.TagTrinarySize/3:], runes[consts.ObsoleteTagTrinaryOffset/3:(consts.ObsoleteTagTrinaryOffset+consts.ObsoleteTagTrinarySize)/3])
+			copy(runes[consts.TagTrinaryOffset/3:], runes[consts.ObsoleteTagTrinaryOffset/3:(consts.ObsoleteTagTrinaryOffset+consts.ObsoleteTagTrinarySize)/3])
 		}
 
 		runesTimeStamp := Int2Runes(timestamp, consts.AttachmentTimestampTrinarySize)
